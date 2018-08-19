@@ -155,6 +155,12 @@ ubt ()	{
 	cp /etc/init/squid3.conf /etc/init.d/squid3
 	# Creating empty blacklist.acl file for further blacklisting entries
 	touch /etc/squid3/blacklist.acl	
+	# Set Timezone For Proxy
+	cd /usr/share/zoneinfo
+	# List Of Time Zones
+	tzselect
+	# Choose & Confirm
+	/usr/share/zoneinfo
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
