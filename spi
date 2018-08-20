@@ -37,10 +37,6 @@ rhel5 ()	{
 	rpm -Uvh http://flexbox.sourceforge.net/centos/5/i386/flexbox-release-1-4.3.noarch.rpm
 	# Installing necessary packages (Squid, httpd for htpasswd and dependencies)
 	yum install perl-DBI libecap squid httpd -y
-	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid/passwd $usrn
 	# Downloading necessary Squid.conf for the corresponding OS & system architecture
 	case $vsysarch in
 			32) # 32 bit Squid configuration
@@ -62,10 +58,6 @@ rhel5 ()	{
 rhel6 ()	{
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
-	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid/passwd $usrn
 	# Downloading necessary Squid.conf for the corresponding OS & system architecture
 	case $vsysarch in
 			32) # 32 bit Squid configuration
@@ -85,10 +77,6 @@ rhel6 ()	{
 rhel7 ()	{
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
-	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid/passwd $usrn
 	# Downloading Squid configuration 
 	wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-rhel7.conf --no-check-certificate
 	# Creating empty blacklist.acl file for further blacklisting entries
@@ -106,9 +94,6 @@ deb ()	{
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
 	apt-get install apache2-utils squid3 -y
 	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid3/passwd $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-debian.conf --no-check-certificate
 	# Creating empty blacklist.acl file for further blacklisting entries
@@ -125,10 +110,6 @@ deb8 ()	{
 	apt-get update
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
 	apt-get install apache2-utils squid3 -y
-	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid3/passwd $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-jessie.conf --no-check-certificate
 	# Creating empty blacklist.acl file for further blacklisting entries
@@ -145,10 +126,6 @@ ubt ()	{
 	apt-get update
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
 	apt-get install apache2-utils squid3 -y
-	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid3/passwd $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
@@ -165,10 +142,6 @@ ubt ()	{
 fed () {
 	# Installing necessary packages (Squid, httpd-tools for htpasswd and dependencies)
 	yum install squid httpd-tools -y
-	# Asking user to set a username via read and writing it into $usrn
-	read -e -p "Your desired username: " usrn
-	# Creating user with username from $usrn and asking user to set a password
-	htpasswd -c /etc/squid/passwd $usrn
 	# Downloading necessary Squid.conf for the corresponding OS & system architecture
 	case $vsysarch in
 		32) # 32 bit Squid configuration
