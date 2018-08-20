@@ -157,12 +157,6 @@ ubt ()	{
 	touch /etc/squid3/blacklist.acl	
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
-	# Set Timezone For Proxy
-	cd /usr/share/zoneinfo
-	# List Of Time Zones
-	tzselect
-	# Choose & Confirm
-	/usr/share/zoneinfo
 	# Running function firew2
 	firew2
 }
