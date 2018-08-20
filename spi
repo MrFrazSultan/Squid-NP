@@ -44,8 +44,6 @@ rhel5 ()	{
 			64) # 64 bit Squid configuration
 					wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-rhel5664.conf --no-check-certificate;;
 	esac
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid restart && chkconfig squid on
 	# Turning off httpd and removing it from services (post installation of yum enabled it but we don't need it)
@@ -65,8 +63,6 @@ rhel6 ()	{
 			64) # 64 bit Squid configuration
 					wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-rhel5664.conf --no-check-certificate;;
 	esac
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid restart && chkconfig squid on
 	# Running function firew1
@@ -79,8 +75,6 @@ rhel7 ()	{
 	yum install squid httpd-tools -y
 	# Downloading Squid configuration 
 	wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-rhel7.conf --no-check-certificate
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	systemctl restart squid.service && systemctl enable squid.service
 	# Running function firew2
@@ -96,8 +90,6 @@ deb ()	{
 	# Asking user to set a username via read and writing it into $usrn
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-debian.conf --no-check-certificate
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid3/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
@@ -112,8 +104,6 @@ deb8 ()	{
 	apt-get install apache2-utils squid3 -y
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-jessie.conf --no-check-certificate
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid3/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
@@ -130,8 +120,6 @@ ubt ()	{
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
 	cp /etc/init/squid3.conf /etc/init.d/squid3
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid3/blacklist.acl	
 	# Restarting Squid and enabling its service
 	service squid3 restart && update-rc.d squid3 defaults
 	# Running function firew2
@@ -149,8 +137,6 @@ fed () {
 		64) # 64 bit Squid configuration
 			wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/MrFrazSultan/SquidProxyScript/master/spi-rhel7.conf --no-check-certificate;;
 	esac
-	# Creating empty blacklist.acl file for further blacklisting entries
-	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	systemctl restart squid && systemctl enable squid
 	# Running function firew2
