@@ -50,6 +50,6 @@ wget https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi && bash 
 
 The SPI installer will do everything by itself. You will only be asked for your desired username and password for the first authorized proxy user.
 
-Use Port 443 Which is HTTPS Port
+Use Port 443 Which is HTTPS Port Or HTTP Port 80
 
 Originally Posted By Hidden Refuge
