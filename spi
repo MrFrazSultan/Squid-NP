@@ -117,9 +117,11 @@ ubt ()	{
 	# Installing necessary packages (Squid, apache2-utils for htpassword and dependencies)
 	apt-get install apache2-utils squid3 -y
 	# Downloading Squid configuration
-	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-ubuntu.conf --no-check-certificate
+	wget -O /etc/squid/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
 	cp /etc/squid/squid.conf /etc/init.d/squid
+	# Creating empty blacklist.acl file for further blacklisting entries
+	touch /etc/squid/blacklist.acl
 	# Restarting Squid and enabling its service
 	service squid restart && update-rc.d squid defaults
 	# Running function firew2
