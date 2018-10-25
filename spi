@@ -119,9 +119,9 @@ ubt ()	{
 	# Downloading Squid configuration
 	wget -O /etc/squid3/squid.conf https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi-ubuntu.conf --no-check-certificate
 	# Copying squid3.conf from init to init.d for startup script
-	cp /etc/init/squid3.conf /etc/init.d/squid3
+	cp /etc/squid/squid.conf /etc/init.d/squid
 	# Restarting Squid and enabling its service
-	service squid3 restart && update-rc.d squid3 defaults
+	service squid restart && update-rc.d squid defaults
 	# Running function firew2
 	firew2
 }
