@@ -39,7 +39,7 @@ Run the following one line command to download the SPI installer file to your De
 
 `wget https://raw.githubusercontent.com/MrFrazSultan/Squid-NP/master/spi && bash spi -jessie && rm spi`
 
-`Ubuntu 18`
+`Ubuntu 16.04 & 18.04`
 
 Run the following one line command to download the SPI installer file to your Ubuntu server, execute it and let it install and configure Squid (after that the SPI installer file will be removed from your server):
 
